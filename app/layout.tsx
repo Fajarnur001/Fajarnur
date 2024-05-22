@@ -1,6 +1,11 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
+import NavUser from "./components/nav-user";
+import SessionsWrapper from "./components/sessionsWrapper";
+import { ThemeProvider } from "@/components/ui/theme-provider";
+import { Toaster } from "@/components/ui/toaster";
+import Footer from "./components/footer";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -15,8 +20,26 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className={inter.className}>{children}</body>
-    </html>
+    <SessionsWrapper>
+      <html lang="en">
+        <body className={inter.className}>
+          <ThemeProvider
+            attribute="class"
+            defaultTheme="system"
+            enableSystem
+            disableTransitionOnChange
+          >
+            <div>
+              <NavUser />
+            </div>
+            <div className="min-h-screen">{children}</div>
+            <div>
+              <Footer />
+            </div>
+            <Toaster />
+          </ThemeProvider>
+        </body>
+      </html>
+    </SessionsWrapper>
   );
 }
