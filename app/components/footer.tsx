@@ -10,7 +10,7 @@ export default function Footer() {
         "border-t"
       )}
     >
-      &copy; Copyright by ariwibi 2024
+      &copy; Copyright by fajarnur 2024
     </div>
   );
 }
