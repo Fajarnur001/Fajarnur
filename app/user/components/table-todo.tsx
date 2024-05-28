@@ -33,8 +33,9 @@ export default function TableTodo() {
     };
     getData();
   }, []);
+  console.log(todos);
 
-  if (todos.langth <= 0 || todos === undefined) return <p>Loading...</p>;
+  if (todos === undefined) return <p>Loading...</p>;
 
   return (
     <div className="px-10 py-5">
@@ -61,7 +62,7 @@ export default function TableTodo() {
               todo: string;
               checked: boolean;
             },
-            index: any
+            index: any,
           ) => (
             <TableBody key={todoItem.id}>
               <TableRow>
@@ -84,7 +85,7 @@ export default function TableTodo() {
                 </TableCell>
               </TableRow>
             </TableBody>
-          )
+          ),
         )}
       </Table>
     </div>
